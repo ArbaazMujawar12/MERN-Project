@@ -1,36 +1,53 @@
 <% layout("/layout/boilerplate") %>
-<div class="row offset-3 mt-3">
-    <div class="col-8">
+<div class="row justify-content-center mx-0 mt-3 mt-md-5">
+    <div class="col-12 col-sm-10 col-md-8 col-lg-6 px-3">
         <form method="post" action="/signup" class="needs-validation" novalidate>
-            <h1 class="offset-2 mb-5">Sign up for WanderLust</h1>
+            <h1 class="text-center mb-4 mb-md-5">Sign Up</h1>
+            
             <div class="mb-3">
                 <label for="username" class="form-label">Username</label>
-                <input name="username" type="text" class="form-control" id="username" required>
+                <input name="username" type="text" class="form-control" id="username" 
+                       required minlength="3" maxlength="20">
+                <div class="invalid-feedback">
+                    Please choose a username (3-20 characters).
+                </div>
                 <div class="valid-feedback">
-                    Looks Good.
+                    Looks good!
                 </div>
             </div>
 
             <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
-                <input name="email" type="email" class="form-control" id="email" required>
+                <input name="email" type="email" class="form-control" id="email" 
+                       required pattern="[^@\s]+@[^@\s]+\.[^@\s]+">
+                <div class="invalid-feedback">
+                    Please enter a valid email address.
+                </div>
                 <div class="valid-feedback">
-                    Looks good.
+                    Looks good!
                 </div>
             </div>
 
             <div class="mb-3">
                 <label for="password" class="form-label">Password</label>
-                <input name="password" type="password" class="form-control" id="password" required>
-                <div class="valid-feedback">
-                    Looks good.
+                <input name="password" type="password" class="form-control" id="password" 
+                       required minlength="6">
+                <div class="invalid-feedback">
+                    Password must be at least 6 characters.
                 </div>
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+                <div class="form-text">Use at least 6 characters with a mix of letters and numbers.</div>
             </div>
 
-            <div class="mb-3 mt-5">
-                <button class="btn btn-primary add-btn col-8 offset-2">Sign up !</button>
+            <div class="mb-3 mt-4">
+                <button class="btn btn-log-page w-100 py-2">Create Account</button>
             </div>
 
+            <div class="text-center mt-3">
+                <p class="mb-0">Already have an account? <a href="/login" class="text-decoration-none">Log in</a></p>
+            </div>
         </form>
     </div>
 </div>
