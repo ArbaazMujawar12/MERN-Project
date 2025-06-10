@@ -42,9 +42,7 @@ const store = MongoStore.create({
   touchAfter : 24 * 3600
 });
 
-app.get("/",(req,res)=>{
-  res.redirect("/listings");
-});
+
 
 store.on("error",(err)=>{
   console.log("error in the mongo session store",err);
@@ -90,7 +88,9 @@ app.use((req,res,next)=>{
   next();
 });
 
-
+app.get("/",(req,res)=>{
+  res.redirect("/listings");
+});
 // Listings route
 app.use("/listings", listingRouter);
 app.use("/listings/:id/review",reviewRouter);
